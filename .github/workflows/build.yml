@@ -1,0 +1,24 @@
+name: Coq Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Coq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y coq
+
+      - name: Generate Makefile
+        run: coq_makefile -f SmallProgrammingLanguage/_CoqProject -o Makefile
+
+      - name: Build
+        run: make -j2
