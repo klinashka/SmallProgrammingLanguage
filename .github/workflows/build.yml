@@ -18,7 +18,7 @@ jobs:
           sudo apt-get install -y coq
 
       - name: Generate Makefile
-        run: coq_makefile -f SmallProgrammingLanguage/_CoqProject -o Makefile
+        run: coq_makefile -f _CoqProject -o Makefile
 
       - name: Build
         run: make -j2
