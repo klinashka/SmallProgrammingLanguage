@@ -1,6 +1,10 @@
 Require Import Coq.Init.Datatypes.
 
-(* Note: In the development here, I use natural numbers instead of integers. I believe this change does not affect the proofs for the design choice that I have made, and opted for this simply to keep the number of imported libraries to a minimum. *)
+(*
+    Note: In the development here, I use natural numbers instead of integers. 
+    This change does not affect the essence of the proofs, and opted for this 
+    simply to keep the number of imported libraries to a minimum. 
+*)
 
 (* Task 2: Define a data structure for expressions, and an evaluation function *)
 
@@ -16,7 +20,10 @@ Fixpoint eval (e : expr) : nat :=
     | EMult e1 e2 => (eval e1) * (eval e2)
     end.
 
-(* Task 3: Define small-step semantics for the language and prove that it agrees with the evaluation function. *)
+(* 
+    Task 3: Define small-step semantics for the language and prove that it agrees with 
+    the evaluation function. 
+*)
 
 Reserved Notation "x ~> y" (at level 90).
 

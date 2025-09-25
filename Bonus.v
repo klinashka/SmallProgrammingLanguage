@@ -18,7 +18,13 @@ Hint Constructors aexpr : core.
 Hint Constructors bexpr : core.
 
 (* 
-    If we are to include variables, both the evaluation function and the small-step semantics require an environment, mapping strings to actual values. For the purpose of this language, the most suitable definition for an environment seems to be a function from strings to natural numbers. This is because it is by far the simplest, and the lack of mutation and of functions in the language suggests there is no need to go into other ways of representing variables and environments than the most straightforward one. 
+    If we are to include variables, both the evaluation function and the small-step 
+    semantics require an environment, mapping strings to actual values. 
+    For the purpose of this language, the most suitable definition for an environment 
+    is as a function from strings to natural numbers. 
+    This is because it is  the simplest, and the lack of mutation and of functions 
+    in the language suggests there is no need to go into other ways of representing 
+    variables and environments than the most straightforward one. 
 *)
 Definition env := string -> nat.
 
@@ -73,7 +79,11 @@ where "x '~' Γ '~>ₑ' y" := (bstep Γ x y).
 Hint Constructors astep : core.
 Hint Constructors bstep : core. 
 
-(* This instruction generates a stronger induction principle for aexpr, including an inductive hypothesis including bexpr. This is necessary since AIf takes a bexpr parameter.  *)
+(* 
+    This instruction generates a stronger induction principle for aexpr, 
+    including an inductive hypothesis including bexpr. 
+    This is necessary since AIf takes a bexpr parameter.  
+*)
 Scheme aexpr_mut := Induction for aexpr Sort Prop
 with bexpr_mut := Induction for bexpr Sort Prop.
 
